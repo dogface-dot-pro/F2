@@ -1,4 +1,4 @@
-// F2 - Folk Assign Gear Script - US Army Equipment
+// F2 - Folk Assign Gear Script - Russian Army Equipment
 // Credits: Please see the F2 online manual (http://www.ferstaberinde.com/f2/en/)
 // ====================================================================================
 
@@ -36,43 +36,47 @@
 //		smg		- submachinegunner
 //		gren	- grenadier
 //
-//
-//		DELTA FORCE:
-//		ld 		- Element leader
-//		o		- Operator
-//		os		- Operator (SD)
-//		s		- Scout/Medic
-//		lmgg	- Light Machinegun gunner
-//		lmgag	- Light Machinegun assistant
-//		latg	- Light Anti Tank gunner
-//		latag	- Light Anti Tank sapper
-//		mm		- Marksman
-//		mms		- Spotter
-//
 //		v_car	- car/4x4
 //		v_tr	- truck
 //		v_ifv	- ifv
+//
+// Spetsnaz:
+//
+//		ld		- leader (co, dc, sl, ftl)
+//		o		- Operator (AK-74)
+//		os		- Operator SD (AKS-74-UN)
+//		s		- Scout/Medic (Bizon-SD)
+//
+//		lmgg	- LMG gunner
+//		lmgag	- LMG assistant
+//		latg	- LAT gunner
+//		latag	- LAT sapper
+//		mm		- Marksman
+//		mms		- Spotter
+//		
+
+
 //
 // ====================================================================================
 
 // GENERAL EQUIPMENT USED BY MULTIPLE CLASSES
 
-_rifle = "M4A1"; _riflemag = "30Rnd_556x45_Stanag";																						// Standard Riflemen (Spotter, HMG Assistant Gunner, MMG Assistant Gunner, Assistant Automatic Rifleman, MAT Assistant Gunner, HAT Assistant Gunner, MTR Assistant Gunner, Rifleman)
+_rifle = "AK_74"; _riflemag = "30Rnd_545x39_AK";																						// Standard Riflemen (Spotter, HMG Assistant Gunner, MMG Assistant Gunner, Assistant Automatic Rifleman, MAT Assistant Gunner, HAT Assistant Gunner, MTR Assistant Gunner, Rifleman)
 
-_carbine = "M4A1_AIM_SD_camo"; _carbinemag = "30Rnd_556x45_StanagSD"; 																					// Standard Carabineer (Medic, HMG Gunner, Rifleman (AT), Rifleman (AA), MAT Gunner, HAT Gunner, MTR Gunner, Carabineer)
+_carbine = "AKS_74_UN_kobra"; _carbinemag = "30Rnd_545x39_AKSD"; 																					// Standard Carabineer (Medic, HMG Gunner, Rifleman (AT), Rifleman (AA), MAT Gunner, HAT Gunner, MTR Gunner, Carabineer)
 
-_smg = "MP5SD"; _smgmag = "30Rnd_9x19_MP5SD";																									// Standard Submachine Gun/Personal Defence Weapon (Vehicle Crew, Aircraft Pilot, Submachinegunner)
+_smg = "bizon_silenced"; _smgmag = "64Rnd_9x19_SD_Bizon";																								// Standard Submachine Gun/Personal Defence Weapon (Vehicle Crew, Aircraft Pilot, Submachinegunner)
 
-_glrifle = "M4A1_HWS_GL_camo"; _glriflemag = "30Rnd_556x45_Stanag"; _glmag = "1Rnd_HE_M203";														// Rifle with GL and HE grenades (CO, DC, FTLs)
-_glsmokewhite = "1Rnd_Smoke_M203"; _glsmokegreen = "1Rnd_SmokeGreen_M203"; _glsmokered = "1Rnd_SmokeRed_M203";    							// Smoke for FTLs, Squad Leaders, etc 
-_glflarewhite = "FlareWhite_M203"; _glflarered = "FlareRed_M203"; _glflareyellow = "FlareYellow_M203"; _glflaregreen = "FlareGreen_M203";	// Flares for FTLs, Squad Leaders, etc
+_glrifle = "AK_74_GL"; _glriflemag = "30Rnd_545x39_AK"; _glmag = "1Rnd_HE_GP25";															// Rifle with GL and HE grenades (CO, DC, FTLs)
+_glsmokewhite = "1Rnd_Smoke_GP25"; _glsmokegreen = "1Rnd_SmokeGreen_GP25"; _glsmokered = "1Rnd_SmokeRed_GP25";    							// Smoke for FTLs, Squad Leaders, etc 
+_glflarewhite = "FlareWhite_GP25"; _glflarered = "FlareRed_GP25"; _glflareyellow = "FlareYellow_GP25"; _glflaregreen = "FlareGreen_GP25";	// Flares for FTLs, Squad Leaders, etc
 
-_pistol = "M9SD"; _pistolmag = "15Rnd_9x19_M9SD";																								// Pistols (CO, DC, Automatic Rifleman, Medium MG Gunner)
+_pistol = "MakarovSD"; _pistolmag = "8Rnd_9x18_MakarovSD";																						// Pistols (CO, DC, Automatic Rifleman, Medium MG Gunner)
 
-_grenade = "HandGrenade_West"; _smokegrenade = "SmokeShell";_smokegrenadegreen = "SmokeShellGreen";																				// Grenades
+_grenade = "HandGrenade_East"; _smokegrenade = "SmokeShell";_smokegreen = "SmokeShellGreen";																				// Grenades
 
-_bagmedium = "US_Assault_Pack_EP1";		// 8+ slots																							// Backpack for assistant gunners (AAR, AMMG, AMAT, AHAT), so that they don't have to drop ammo themselves
-_baglarge =  "US_Backpack_EP1"; 		// 12+ slots
+_bagmedium = "TK_Assault_Pack_EP1";		// 8+ slots																							// Backpack for assistant gunners (AAR, AMMG, AMAT, AHAT), so that they don't have to drop ammo themselves
+_baglarge =  "TK_ALICE_Pack_EP1"; 		// 12+ slots
 		//  6 Slots: "CZ_Vestpouch_EP1"
 		//  8 Slots: "US_Assault_Pack_EP1", "US_Patrol_Pack_EP1", "TK_Assault_Pack_EP1", "TK_RPG_Backpack_EP1"
 		// 12 Slots: "US_Backpack_EP1", "TK_ALICE_Pack_EP1",
@@ -83,31 +87,31 @@ _baglarge =  "US_Backpack_EP1"; 		// 12+ slots
 
 // UNIQUE, ROLE-SPECIFIC EQUIPMENT
 
-_AR = "M249_EP1"; _ARmag = "100Rnd_556x45_M249";																							// Automatic Rifleman
+_AR = "RPK_74"; _ARmag = "75Rnd_545x39_RPK";																								// Automatic Rifleman
 
-_MMG = "M240"; _MMGmag = "100Rnd_762x51_M240";																								// Medium MG
+_MMG = "PK"; _MMGmag = "100Rnd_762x54_PK";																									// Medium MG
 
-_HMG = "M2HD_mini_TriPod_US_Bag_EP1";																										// Heavy MG (note: HMG is an assembled weapon, gunner carries weapon)
+_HMG = "DSHkM_Mini_TriPod_TK_INS_Bag_EP1";																									// Heavy MG (note: HMG is an assembled weapon, gunner carries weapon)
 _HMGmount = "Tripod_Bag";																													// Assistant Heavy MG (note: HMG is an assembled weapon, assistant carries bipod/tripd)
 
-_RAT = "M136"; _RATmag = "M136";																											// Rifleman AT
+_RAT = "RPG7V"; _RATmag = "PG7V";																											// Rifleman AT
 
-_MAT = "MAAWS"; _MATmag1 = "MAAWS_HEAT"; _MATmag2 = "MAAWS_HEDP";																			// Medium AT
+_MAT = "RPG7V"; _MATmag1 = "PG7V"; _MATmag2 = "PG7VR";																						// Medium AT
 
-_HAT = "Javelin"; _HATmag1 = "Javelin"; _HATmag2 = "Javelin";																				// Heavy AT Gunner
+_HAT = "MetisLauncher"; _HATmag1 = "AT13"; _HATmag2 = "AT13";																				// Heavy AT Gunner
 
-_MTR = "M252_US_Bag_EP1";																													// Mortar Gunner (note: Mortar is an assembled weapon, gunner carries weapon)
+_MTR = "2b14_82mm_TK_Bag_EP1";																												// Mortar Gunner (note: Mortar is an assembled weapon, gunner carries weapon)
 _MTRmount = "Tripod_Bag";																													// Mortar Assistant Gunner (note: Mortar is an assembled weapon, assistant carries bipod/tripd)
 
-_RAA = "Stinger"; _RAAmag = "Stinger";																										// Rifleman AA (anti-air)
+_RAA = "Strela"; _RAAmag = "Strela";																										// Rifleman AA (anti-air)
 
-_SNrifle = "M24_des_EP1"; _SNriflemag = "5Rnd_762x51_M24";																					// Sniper
+_SNrifle = "SVD"; _SNriflemag = "10Rnd_762x54_SVD";																							// Sniper
 
-_mine = "Mine"; _satchel = "pipebomb";	
+_mine = "Mine"; _satchel = "pipebomb";																										// Engineer
 
-_LAT = "M136"; _LATmag = "M136";
-_LMG = "M249"; _LMGmag = "100Rnd_556x45_BetaCMag";
-_MM	 = "M4SPR"; _MMmag = "30Rnd_556x45_StanagSD";																										// Engineer
+_LAT = "RPG7V"; _LATmag = "PG7V"; _LATmag2 = "OG7";
+_LMG = "RPK_74"; _LMGmag = "75Rnd_545x39_RPK";
+_MM	 = "VSS_Vintorez"; _MMmag = "10Rnd_9x39_SP5_VSS";
 
 // ====================================================================================
 
@@ -122,12 +126,13 @@ _unit = _this select 1;							// expecting name of unit; originally passed by us
 // PREPARE UNIT FOR GEAR ADDITION
 // The following code removes all existing weapons and backpacks
 
+hint "Removing shit...";
 removeBackpack _unit;
 removeallweapons _unit;
 //_unit addweapon "NVGoggles"; 					// add universal NVG for this faction
 
 removeAllItems _unit;						// remove default items: map, compass, watch, radio (and GPS for team/squad leaders)
-////_unit addweapon "ItemGPS";					// add universal GPS for this faction (nb: misc items not cleared
+//_unit addweapon "ItemGPS";					// add universal GPS for this faction (nb: misc items not cleared
 _unit addweapon "ItemMap";				// etc
 _unit addweapon "ItemCompass";
 _unit addweapon "ItemRadio";
@@ -249,7 +254,9 @@ switch (_typeofUnit) do
 			clearMagazineCargoGlobal (unitBackpack _unit);
 			(unitBackpack _unit) addMagazineCargoGlobal [_ARmag, 2];
 			(unitBackpack _unit) addMagazineCargoGlobal [_RATmag, 1];
+			(unitBackpack _unit) addMagazineCargoGlobal [_grenade, 2];
 			(unitBackpack _unit) addMagazineCargoGlobal [_riflemag, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_carbinemag, 2];
 		} else {
 			{_unit addmagazine _ARmag} foreach [1,2];
 		};
@@ -258,9 +265,9 @@ switch (_typeofUnit) do
 // LOADOUT: RIFLEMAN (AT)	
 	case "rat":
 	{
-		{_unit addmagazine _carbinemag} foreach [1,2,3,4,5];
+		{_unit addmagazine _carbinemag} foreach [1,2,3,4,5,6];
 		_unit addweapon _carbine;
-		{_unit addmagazine _RATmag} foreach [1];
+		{_unit addmagazine _RATmag} foreach [1,2];
 		{_unit addmagazine _smokegrenade} foreach [1];		
 		_unit addweapon _RAT;
 	};		
@@ -349,7 +356,7 @@ switch (_typeofUnit) do
 	{
 		{_unit addmagazine _carbinemag} foreach [1,2,3];
 		_unit addweapon _carbine;
-		{_unit addmagazine _MATmag1} foreach [1,2];
+		{_unit addmagazine _MATmag1} foreach [1,2,3];
 		{_unit addmagazine _MATmag2} foreach [1];
 		_unit addweapon _MAT;			
 	};	
@@ -368,7 +375,7 @@ switch (_typeofUnit) do
 			{_unit addmagazine _smokegrenade;} foreach [1];
 			_unit addBackpack _baglarge;
 			clearMagazineCargoGlobal (unitBackpack _unit);
-			(unitBackpack _unit) addMagazineCargoGlobal [_MATmag1, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_MATmag1, 3];
 			(unitBackpack _unit) addMagazineCargoGlobal [_MATmag2, 2];
 		} else {
 			{_unit addmagazine _MATmag1} foreach [1];
@@ -547,9 +554,74 @@ switch (_typeofUnit) do
 			(unitBackpack _unit) addMagazineCargoGlobal [_glmag, 2];
 		};
 	};
+
+// CARGO: CAR - room for 10 weapons and 50 cargo items
+	case "v_car":
+	{
+		clearWeaponCargoGlobal _unit;
+		clearMagazineCargoGlobal _unit;
+		_unit addWeaponCargoGlobal [_carbine, 2];
+		_unit addMagazineCargoGlobal [_riflemag, 8];
+		_unit addMagazineCargoGlobal [_glriflemag, 8];
+		_unit addMagazineCargoGlobal [_carbinemag, 10];
+		_unit addMagazineCargoGlobal [_armag, 5];
+		_unit addMagazineCargoGlobal [_ratmag, 1];
+		_unit addMagazineCargoGlobal [_grenade, 4];
+		_unit addMagazineCargoGlobal [_smokegrenade, 4];
+		_unit addMagazineCargoGlobal [_smokegrenadegreen, 2];
+		_unit addMagazineCargoGlobal [_glmag, 4];
+		_unit addMagazineCargoGlobal [_glsmokewhite, 4];
+	};	
 	
+// CARGO: TRUCK - room for 50 weapons and 200 cargo items
+	case "v_tr":
+	{
+		clearWeaponCargoGlobal _unit;
+		clearMagazineCargoGlobal _unit;
+		_unit addWeaponCargoGlobal [_carbine, 10];
+		_unit addMagazineCargoGlobal [_riflemag, 40];
+		_unit addMagazineCargoGlobal [_glriflemag, 40];
+		_unit addMagazineCargoGlobal [_carbinemag, 40];
+		_unit addMagazineCargoGlobal [_armag, 22];
+		_unit addMagazineCargoGlobal [_ratmag, 6];
+		_unit addMagazineCargoGlobal [_grenade, 12];
+		_unit addMagazineCargoGlobal [_smokegrenade, 12];
+		_unit addMagazineCargoGlobal [_smokegrenadegreen, 4];
+		_unit addMagazineCargoGlobal [_glmag, 12];
+		_unit addMagazineCargoGlobal [_glsmokewhite, 12];
+	};
+	
+// CARGO: IFV - room for 10 weapons and 100 cargo items
+	case "v_ifv":
+	{
+		clearWeaponCargoGlobal _unit;
+		clearMagazineCargoGlobal _unit;
+		_unit addWeaponCargoGlobal [_carbine, 4];
+		_unit addMagazineCargoGlobal [_riflemag, 20];
+		_unit addMagazineCargoGlobal [_glriflemag, 20];
+		_unit addMagazineCargoGlobal [_carbinemag, 20];
+		_unit addMagazineCargoGlobal [_armag, 8];
+		_unit addMagazineCargoGlobal [_ratmag, 2];
+		_unit addMagazineCargoGlobal [_grenade, 8];
+		_unit addMagazineCargoGlobal [_smokegrenade, 8];
+		_unit addMagazineCargoGlobal [_smokegrenadegreen, 2];
+		_unit addMagazineCargoGlobal [_glmag, 8];
+		_unit addMagazineCargoGlobal [_glsmokewhite, 4];
+	};
+	
+// LOADOUT: DEFAULT/UNDEFINED (use RIFLEMAN)
+   default
+   {
+		{_unit addmagazine _riflemag} foreach [1,2,3,4,5,6,7];
+		_unit addweapon _rifle;
+		
+		_unit selectweapon primaryweapon _unit;
+				
+		if (true) exitwith {player globalchat format ["DEBUG (f\common\folk_assignGear.sqf): Unit = %1. Gear template %2 does not exist, used Rifleman instead.",_unit,_typeofunit]};
+   };
+   
 // ====================================================================================
-// DELTA FORCE
+// SPETSNAZ
 
 // LOADOUT: LEADER
 	case "ld":
@@ -577,9 +649,9 @@ switch (_typeofUnit) do
 	// LOADOUT: SCOUT/MEDIC
 	case "s":
 	{
-		{_unit addmagazine _smgmag} foreach [1,2,3,4,5,6,7,8];
+		{_unit addmagazine _smgmag} foreach [1,2,3,4,5,6];
 		_unit addweapon _smg;
-		{_unit addmagazine _smokegreen;} foreach [1,2,3,4];
+		{_unit addmagazine _smokegrenade;} foreach [1,2];
 		if (_useBackpacks==1) then {
 			_unit addBackpack _bagmedium;
 			clearMagazineCargoGlobal (unitBackpack _unit);
@@ -660,10 +732,10 @@ switch (_typeofUnit) do
 	// LOADOUT: LAT Gunner
 	case "latg":
 	{
-		{_unit addmagazine _riflemag} foreach [1,2,3,4];
+		{_unit addmagazine _riflemag} foreach [1,2,3,4,5,6];
 		_unit addweapon _rifle;
-		{_unit addmagazine _LATmag} foreach [1];
-		{_unit addmagazine _grenade} foreach [1,2];		
+		{_unit addmagazine _LATmag} foreach [1,2];
+		{_unit addmagazine _LATmag2} foreach [1];		
 		_unit addweapon _LAT;
 		{_unit addmagazine _pistolmag} foreach [1,2,3,4];
 		_unit addweapon _pistol;
@@ -674,11 +746,8 @@ switch (_typeofUnit) do
 	{
 		{_unit addmagazine _riflemag} foreach [1,2,3,4];
 		_unit addweapon _rifle;		
-		{_unit addmagazine _grenade} foreach [1];
-		{_unit addmagazine _smokegrenade} foreach [1];
-		{_unit addmagazine _satchel} foreach [1,2];
-		{_unit addmagazine _mine} foreach [1];
-		
+		{_unit addmagazine _grenade} foreach [1,2];
+		{_unit addmagazine _satchel;} foreach [1];
 		_unit addweapon "Binocular";
 			// Put ammo in backpack. If not OA unit, then should add directly to inv of unit instead.
 		if (_useBackpacks==1) then {
@@ -687,9 +756,9 @@ switch (_typeofUnit) do
 			{_unit addmagazine _smokegrenade;} foreach [1];
 			_unit addBackpack _baglarge;
 			clearMagazineCargoGlobal (unitBackpack _unit);
-			(unitBackpack _unit) addMagazineCargoGlobal [_LATmag, 1];
-			(unitBackpack _unit) addMagazineCargoGlobal [_mine, 1];
-			(unitBackpack _unit) addMagazineCargoGlobal [_satchel, 1];
+			(unitBackpack _unit) addMagazineCargoGlobal [_LATmag, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_LATmag2, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_satchel, 2];
 		} else {
 			{_unit addmagazine _LATmag} foreach [1];
 			{_unit addmagazine _LATmag2} foreach [1];
@@ -700,7 +769,7 @@ switch (_typeofUnit) do
 	case "mm":
 	{
 		{_unit addmagazine _MMmag} foreach [1,2];
-		_unit addweapon _MM;
+		_unit addweapon _MMrifle;
 		_unit addweapon "Binocular";
 		{_unit addmagazine _smokegrenade;} foreach [1,2];
 	};
@@ -720,73 +789,7 @@ switch (_typeofUnit) do
 			(unitBackpack _unit) addMagazineCargoGlobal [_grenade, 2];
 		};
 	};
-
-// CARGO: CAR - room for 10 weapons and 50 cargo items
-	case "v_car":
-	{
-		clearWeaponCargoGlobal _unit;
-		clearMagazineCargoGlobal _unit;
-		_unit addWeaponCargoGlobal [_carbine, 2];
-		_unit addMagazineCargoGlobal [_riflemag, 8];
-		_unit addMagazineCargoGlobal [_glriflemag, 8];
-		_unit addMagazineCargoGlobal [_carbinemag, 10];
-		_unit addMagazineCargoGlobal [_armag, 5];
-		_unit addMagazineCargoGlobal [_ratmag, 1];
-		_unit addMagazineCargoGlobal [_grenade, 4];
-		_unit addMagazineCargoGlobal [_smokegrenade, 4];
-		_unit addMagazineCargoGlobal [_smokegrenadegreen, 2];
-		_unit addMagazineCargoGlobal [_glmag, 4];
-		_unit addMagazineCargoGlobal [_glsmokewhite, 4];
-	};	
 	
-// CARGO: TRUCK - room for 50 weapons and 200 cargo items
-	case "v_tr":
-	{
-		clearWeaponCargoGlobal _unit;
-		clearMagazineCargoGlobal _unit;
-		_unit addWeaponCargoGlobal [_carbine, 10];
-		_unit addMagazineCargoGlobal [_riflemag, 40];
-		_unit addMagazineCargoGlobal [_glriflemag, 40];
-		_unit addMagazineCargoGlobal [_carbinemag, 40];
-		_unit addMagazineCargoGlobal [_armag, 22];
-		_unit addMagazineCargoGlobal [_ratmag, 6];
-		_unit addMagazineCargoGlobal [_grenade, 12];
-		_unit addMagazineCargoGlobal [_smokegrenade, 12];
-		_unit addMagazineCargoGlobal [_smokegrenadegreen, 4];
-		_unit addMagazineCargoGlobal [_glmag, 12];
-		_unit addMagazineCargoGlobal [_glsmokewhite, 12];
-	};
-	
-// CARGO: IFV - room for 10 weapons and 100 cargo items
-	case "v_ifv":
-	{
-		clearWeaponCargoGlobal _unit;
-		clearMagazineCargoGlobal _unit;
-		_unit addWeaponCargoGlobal [_carbine, 4];
-		_unit addMagazineCargoGlobal [_riflemag, 20];
-		_unit addMagazineCargoGlobal [_glriflemag, 20];
-		_unit addMagazineCargoGlobal [_carbinemag, 20];
-		_unit addMagazineCargoGlobal [_armag, 8];
-		_unit addMagazineCargoGlobal [_ratmag, 2];
-		_unit addMagazineCargoGlobal [_grenade, 8];
-		_unit addMagazineCargoGlobal [_smokegrenade, 8];
-		_unit addMagazineCargoGlobal [_smokegrenadegreen, 2];
-		_unit addMagazineCargoGlobal [_glmag, 8];
-		_unit addMagazineCargoGlobal [_glsmokewhite, 4];
-	};
-	
-// LOADOUT: DEFAULT/UNDEFINED (use RIFLEMAN)
-   default
-   {
-		{_unit addmagazine _riflemag} foreach [1,2,3,4,5,6,7];
-		_unit addweapon _rifle;
-		
-		_unit selectweapon primaryweapon _unit;
-				
-		if (true) exitwith {player globalchat format ["DEBUG (f\common\folk_assignGear.sqf): Unit = %1. Gear template %2 does not exist, used Rifleman instead.",_unit,_typeofunit]};
-   };
-
-
 // ====================================================================================
 
 // END SWITCH FOR DEFINE UNIT TYPE LOADOUTS

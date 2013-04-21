@@ -17,7 +17,7 @@
 		<French> Heure de la journée </French>
       </Key>
       <Key ID="STR_f_param_timeOfDay_Option0">
-        <English> Dawn </English>
+        <English> Sunset -30 min </English>
         <Czech> Svítání </Czech>
         <German> Morgendämmerung </German>
         <Polish> Swit </Polish>
@@ -26,21 +26,21 @@
         <French> Aube </French>
       </Key>
       <Key ID="STR_f_param_timeOfDay_Option1">
-        <English> Early Morning </English>
+        <English> Sunset </English>
         <German> Früher Morgen </German>
         <Polish> Wczesny Ranek </Polish>
         <Russian> Раннее утро </Russian>
         <French> Matin </French>
       </Key>
       <Key ID="STR_f_param_timeOfDay_Option2">
-        <English> Morning </English>
+        <English> Sunset +60 min </English>
         <German> Morgen </German>
         <Polish> Ranek </Polish>
         <Russian> Утро </Russian>
         <French> Matinée </French>
       </Key>
       <Key ID="STR_f_param_timeOfDay_Option3">
-        <English> Noon </English>
+        <English> Midnight </English>
         <Czech> Poledne </Czech>
         <German> Mittag </German>
         <Polish> Poludnie </Polish>
@@ -49,21 +49,21 @@
         <French> Midi </French>
       </Key>
       <Key ID="STR_f_param_timeOfDay_Option4">
-        <English> Afternoon </English>
+        <English> Sunrise -60 min </English>
         <German> Nachmittag </German>
         <Polish> Popołudnie </Polish>
         <Russian> Середина дня </Russian>
         <French> Après-midi </French>
       </Key>
       <Key ID="STR_f_param_timeOfDay_Option5">
-        <English> Evening </English>
+        <English> Sunrise -30 min </English>
         <German> Abend </German>
         <Polish> Wieczór </Polish>
         <Russian> Вечер </Russian>
         <French> Soirée </French>
       </Key>
       <Key ID="STR_f_param_timeOfDay_Option6">
-        <English> Dusk </English>
+        <English> Sunrise </English>
         <Czech> Soumrak </Czech>
         <German> Abenddämmerung </German>
         <Polish> Zmierzch </Polish>
@@ -72,7 +72,7 @@
         <French> Soir </French>
       </Key>
       <Key ID="STR_f_param_timeOfDay_Option7">
-        <English> Night </English>
+        <English> Sunrise +60 min </English>
         <Czech> Noc </Czech>
         <German> Nacht </German>
         <Polish> Noc </Polish>

@@ -115,7 +115,7 @@ if (_faction == "bis_tk") then {
 // automatically includes a file which contains the appropriate equipment data.
 
 if (_faction == "ru") then {
-#include "folk_assignGear_ru.sqf"
+#include "folk_assignGear_ru.sqf";
 };
 
 // ====================================================================================

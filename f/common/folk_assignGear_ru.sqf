@@ -35,6 +35,18 @@
 //		car		- carabineer
 //		smg		- submachinegunner
 //		gren	- grenadier
+//		
+//		SPETSNAZ:
+//		ld 		- Element leader
+//		o		- Operator
+//		os		- Operator (SD)
+//		s		- Scout/Medic
+//		lmgg	- Light Machinegun gunner
+//		lmgag	- Light Machinegun assistant
+//		latg	- Light Anti Tank gunner
+//		latag	- Light Anti Tank sapper
+//		mm		- Marksman
+//		mms		- Spotter
 //
 //		v_car	- car/4x4
 //		v_tr	- truck
@@ -44,17 +56,17 @@
 
 // GENERAL EQUIPMENT USED BY MULTIPLE CLASSES
 
-_rifle = "AK_107_Kobra"; _riflemag = "30Rnd_545x39_AK";																						// Standard Riflemen (Spotter, HMG Assistant Gunner, MMG Assistant Gunner, Assistant Automatic Rifleman, MAT Assistant Gunner, HAT Assistant Gunner, MTR Assistant Gunner, Rifleman)
+_rifle = "AK_74"; _riflemag = "30Rnd_545x39_AK";																						// Standard Riflemen (Spotter, HMG Assistant Gunner, MMG Assistant Gunner, Assistant Automatic Rifleman, MAT Assistant Gunner, HAT Assistant Gunner, MTR Assistant Gunner, Rifleman)
 
-_carbine = "AKS_74_kobra"; _carbinemag = "30Rnd_545x39_AK"; 																					// Standard Carabineer (Medic, HMG Gunner, Rifleman (AT), Rifleman (AA), MAT Gunner, HAT Gunner, MTR Gunner, Carabineer)
+_carbine = "AKS_74_UN_kobra"; _carbinemag = "30Rnd_545x39_AKSD"; 																					// Standard Carabineer (Medic, HMG Gunner, Rifleman (AT), Rifleman (AA), MAT Gunner, HAT Gunner, MTR Gunner, Carabineer)
 
-_smg = "bizon"; _smgmag = "64Rnd_9x19_Bizon";																								// Standard Submachine Gun/Personal Defence Weapon (Vehicle Crew, Aircraft Pilot, Submachinegunner)
+_smg = "bizon_silenced"; _smgmag = "64Rnd_9x19_SD_Bizon";																								// Standard Submachine Gun/Personal Defence Weapon (Vehicle Crew, Aircraft Pilot, Submachinegunner)
 
-_glrifle = "AK_107_GL_Kobra"; _glriflemag = "30Rnd_545x39_AK"; _glmag = "1Rnd_HE_GP25";															// Rifle with GL and HE grenades (CO, DC, FTLs)
+_glrifle = "AK_74_GL"; _glriflemag = "30Rnd_545x39_AK"; _glmag = "1Rnd_HE_GP25";															// Rifle with GL and HE grenades (CO, DC, FTLs)
 _glsmokewhite = "1Rnd_Smoke_GP25"; _glsmokegreen = "1Rnd_SmokeGreen_GP25"; _glsmokered = "1Rnd_SmokeRed_GP25";    							// Smoke for FTLs, Squad Leaders, etc 
 _glflarewhite = "FlareWhite_GP25"; _glflarered = "FlareRed_GP25"; _glflareyellow = "FlareYellow_GP25"; _glflaregreen = "FlareGreen_GP25";	// Flares for FTLs, Squad Leaders, etc
 
-_pistol = "Makarov"; _pistolmag = "8Rnd_9x18_Makarov";																						// Pistols (CO, DC, Automatic Rifleman, Medium MG Gunner)
+_pistol = "MakarovSD"; _pistolmag = "8Rnd_9x18_MakarovSD";																						// Pistols (CO, DC, Automatic Rifleman, Medium MG Gunner)
 
 _grenade = "HandGrenade_East"; _smokegrenade = "SmokeShell";_smokegreen = "SmokeShellGreen";																				// Grenades
 
@@ -92,6 +104,10 @@ _SNrifle = "SVD"; _SNriflemag = "10Rnd_762x54_SVD";																							// Sni
 
 _mine = "Mine"; _satchel = "pipebomb";																										// Engineer
 
+_LAT = "RPG7V"; _LATmag = "PG7V"; _LATmag2 = "OG7";
+_LMG = "RPK_74"; _LMGmag = "75Rnd_545x39_RPK";
+_MM	 = "VSS_vintorez"; _MMmag = "10Rnd_9x39_SP5_VSS";																									// Engineer
+
 // ====================================================================================
 
 // INTERPRET PASSED VARIABLES
@@ -107,14 +123,14 @@ _unit = _this select 1;							// expecting name of unit; originally passed by us
 
 removeBackpack _unit;
 removeallweapons _unit;
-_unit addweapon "NVGoggles"; 					// add universal NVG for this faction
+//_unit addweapon "NVGoggles"; 					// add universal NVG for this faction
 
-//removeAllItems _unit;						// remove default items: map, compass, watch, radio (and GPS for team/squad leaders)
+removeAllItems _unit;						// remove default items: map, compass, watch, radio (and GPS for team/squad leaders)
 ////_unit addweapon "ItemGPS";					// add universal GPS for this faction (nb: misc items not cleared
-//_unit addweapon "ItemMap";				// etc
-//_unit addweapon "ItemCompass";
-//_unit addweapon "ItemRadio";
-//_unit addweapon "ItemWatch";
+_unit addweapon "ItemMap";				// etc
+_unit addweapon "ItemCompass";
+_unit addweapon "ItemRadio";
+_unit addweapon "ItemWatch";
 
 // ====================================================================================
 
@@ -291,7 +307,7 @@ switch (_typeofUnit) do
 	{
 		{_unit addmagazine _riflemag} foreach [1,2,3,4,5,6];
 		_unit addweapon _rifle;
-		_unit addWeapon "Binocular_Vector";	
+		_unit addWeapon "Binocular";	
 		{_unit addmagazine _grenade} foreach [1];
 		{_unit addmagazine _smokegrenade;} foreach [1];
 		// Put ammo in backpack. If not OA unit, then should add directly to inv of unit instead.
@@ -426,8 +442,10 @@ switch (_typeofUnit) do
 	case "sp":
 	{
 		{_unit addmagazine _riflemag} foreach [1,2,3,4];
+		{_unit addmagazine _SNriflemag} foreach [1];
 		_unit addweapon _rifle;
-		_unit addWeapon "Binocular_Vector";	
+		_unit addWeapon "Binocular";
+		_unit addweapon "NVGoggles";	
 		{_unit addmagazine _smokegrenade;} foreach [1];
 	};			
 	
@@ -590,14 +608,194 @@ switch (_typeofUnit) do
 // LOADOUT: DEFAULT/UNDEFINED (use RIFLEMAN)
    default
    {
-		{_unit addmagazine _riflemag} foreach [1,2,3,4,5,6,7];
+		{_unit addmagazine _riflemag} foreach [1,2,3,4,5,6,7,8];
 		_unit addweapon _rifle;
-		
-		_unit selectweapon primaryweapon _unit;
-				
-		if (true) exitwith {player globalchat format ["DEBUG (f\common\folk_assignGear.sqf): Unit = %1. Gear template %2 does not exist, used Rifleman instead.",_unit,_typeofunit]};
-   };
+		{_unit addmagazine _grenade} foreach [1,2];
+		{_unit addmagazine _smokegrenade;} foreach [1,2];
+		if (_useBackpacks==1) then {
+			_unit addBackpack _bagmedium;
+			clearMagazineCargoGlobal (unitBackpack _unit);
+			(unitBackpack _unit) addMagazineCargoGlobal [_riflemag, 4];
+			(unitBackpack _unit) addMagazineCargoGlobal [_grenade, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_smokegrenade, 2];
+		};
+	};
 
+
+// ====================================================================================
+// SPETSNAZ
+
+// LOADOUT: LEADER
+	case "ld":
+	{
+		{_unit addmagazine _glriflemag} foreach [1,2,3,4,5,6,7];	//_FTLriflemag
+		{_unit addmagazine _glmag} foreach [1,2,3,4];
+		{_unit addmagazine _glsmokewhite} foreach [1,2];
+		{_unit addmagazine _glflarered} foreach [1,2];
+		_unit addweapon _glrifle;									//_FTLrifle		
+		{_unit addmagazine _grenade} foreach [1,2];
+		{_unit addmagazine _smokegrenade;} foreach [1,2];
+		{_unit addmagazine _smokegrenadegreen;} foreach [1];
+		_unit addweapon "Binocular";
+		_unit addweapon "NVGoggles";
+		if (_useBackpacks==1) then {
+			_unit addBackpack _bagmedium;
+			clearMagazineCargoGlobal (unitBackpack _unit);
+			(unitBackpack _unit) addMagazineCargoGlobal [_glriflemag, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_glsmokewhite, 1];			
+			(unitBackpack _unit) addMagazineCargoGlobal [_glmag, 3];
+			(unitBackpack _unit) addMagazineCargoGlobal [_glflarered, 2];
+		};
+	};		
+
+	// LOADOUT: SCOUT/MEDIC
+	case "s":
+	{
+		{_unit addmagazine _smgmag} foreach [1,2,3,4,5,6];
+		_unit addweapon _smg;
+		{_unit addmagazine _smokegrenade;} foreach [1,2];
+		if (_useBackpacks==1) then {
+			_unit addBackpack _bagmedium;
+			clearMagazineCargoGlobal (unitBackpack _unit);
+			(unitBackpack _unit) addMagazineCargoGlobal [_smgmag, 4];
+			(unitBackpack _unit) addMagazineCargoGlobal [_grenade, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_smokegrenade, 2];
+		};
+	};
+	
+// LOADOUT: OPERATOR
+	case "o":
+	{
+		{_unit addmagazine _riflemag} foreach [1,2,3,4,5,6,7,8];
+		_unit addweapon _rifle;
+		{_unit addmagazine _grenade} foreach [1,2];
+		{_unit addmagazine _smokegrenade;} foreach [1,2];
+		{_unit addmagazine _pistolmag} foreach [1,2,3,4];
+		_unit addweapon _pistol;
+		if (_useBackpacks==1) then {
+			_unit addBackpack _bagmedium;
+			clearMagazineCargoGlobal (unitBackpack _unit);
+			(unitBackpack _unit) addMagazineCargoGlobal [_riflemag, 4];
+			(unitBackpack _unit) addMagazineCargoGlobal [_grenade, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_smokegrenade, 2];
+		};
+	};	
+
+	// LOADOUT: OPERATOR (SD)
+	case "os":
+	{
+		{_unit addmagazine _carbinemag} foreach [1,2,3,4,5,6,7,8];
+		_unit addweapon _carbine;
+		{_unit addmagazine _grenade} foreach [1,2];
+		{_unit addmagazine _smokegrenade;} foreach [1,2];
+		if (_useBackpacks==1) then {
+			_unit addBackpack _bagmedium;
+			clearMagazineCargoGlobal (unitBackpack _unit);
+			(unitBackpack _unit) addMagazineCargoGlobal [_carbinemag, 4];
+			(unitBackpack _unit) addMagazineCargoGlobal [_grenade, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_smokegrenade, 2];
+		};
+	};
+	
+	// LOADOUT: LMG Gunner
+	case "lmgg":
+	{
+		{_unit addmagazine _ARmag} foreach [1,2,3,4,5];
+		_unit addweapon _AR;
+		{_unit addmagazine _grenade} foreach [1];
+		{_unit addmagazine _smokegrenade;} foreach [1];
+		{_unit addmagazine _pistolmag} foreach [1,2,3,4];
+		_unit addweapon _pistol;
+	};
+	
+	// LOADOUT: LMG ASSISTANT
+	case "lmgag":
+	{
+		{_unit addmagazine _riflemag} foreach [1,2,3,4,5,6];
+		_unit addweapon _rifle;		
+		{_unit addmagazine _grenade} foreach [1];
+		{_unit addmagazine _smokegrenade;} foreach [1];
+		_unit addweapon "Binocular";
+			// Put ammo in backpack. If not OA unit, then should add directly to inv of unit instead.
+		if (_useBackpacks==1) then {
+			{_unit addmagazine _riflemag} foreach [1,2];
+			{_unit addmagazine _grenade} foreach [1];
+			{_unit addmagazine _smokegrenade;} foreach [1];
+			_unit addBackpack _baglarge;
+			clearMagazineCargoGlobal (unitBackpack _unit);
+			(unitBackpack _unit) addMagazineCargoGlobal [_ARmag, 4];
+			(unitBackpack _unit) addMagazineCargoGlobal [_grenade, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_riflemag, 2];
+		} else {
+			{_unit addmagazine _ARmag} foreach [1,2];
+		};
+	};
+
+	// LOADOUT: LAT Gunner
+	case "latg":
+	{
+		{_unit addmagazine _riflemag} foreach [1,2,3,4];
+		_unit addweapon _rifle;
+		{_unit addmagazine _LATmag} foreach [1,2];
+		{_unit addmagazine _LATmag2} foreach [1];
+		{_unit addmagazine _grenade} foreach [1,2];		
+		_unit addweapon _LAT;
+		{_unit addmagazine _pistolmag} foreach [1,2,3,4];
+		_unit addweapon _pistol;
+	};	
+	
+	// LOADOUT: LAT SAPPER
+	case "latag":
+	{
+		{_unit addmagazine _riflemag} foreach [1,2,3,4];
+		_unit addweapon _rifle;		
+		{_unit addmagazine _grenade} foreach [1];
+		{_unit addmagazine _smokegrenade} foreach [1];
+		{_unit addmagazine _satchel} foreach [1,2];
+		{_unit addmagazine _mine} foreach [1];
+		
+		_unit addweapon "Binocular";
+			// Put ammo in backpack. If not OA unit, then should add directly to inv of unit instead.
+		if (_useBackpacks==1) then {
+			{_unit addmagazine _riflemag} foreach [1,2];
+			{_unit addmagazine _grenade} foreach [1];
+			{_unit addmagazine _smokegrenade;} foreach [1];
+			_unit addBackpack _baglarge;
+			clearMagazineCargoGlobal (unitBackpack _unit);
+			(unitBackpack _unit) addMagazineCargoGlobal [_LATmag, 1];
+			(unitBackpack _unit) addMagazineCargoGlobal [_LATmag2, 1];
+			(unitBackpack _unit) addMagazineCargoGlobal [_mine, 1];
+			(unitBackpack _unit) addMagazineCargoGlobal [_satchel, 2];
+		} else {
+			{_unit addmagazine _LATmag} foreach [1];
+			{_unit addmagazine _LATmag2} foreach [1];
+		};
+	};
+	
+	// LOADOUT: MARKSMAN
+	case "mm":
+	{
+		{_unit addmagazine _MMmag} foreach [1,2];
+		_unit addweapon _MM;
+		_unit addweapon "Binocular";
+		{_unit addmagazine _smokegrenade;} foreach [1,2];
+	};
+	
+	// LOADOUT: SPOTTER
+	case "mms":
+	{
+		{_unit addmagazine _carbinemag} foreach [1,2,3,4,5,6,7,8];
+		_unit addweapon _carbine;
+		{_unit addmagazine _smokegrenade} foreach [1,2];
+		{_unit addmagazine _smokegreeen;} foreach [1,2];
+		if (_useBackpacks==1) then {
+			_unit addBackpack _bagmedium;
+			clearMagazineCargoGlobal (unitBackpack _unit);
+			(unitBackpack _unit) addMagazineCargoGlobal [_carbinemag, 4];
+			(unitBackpack _unit) addMagazineCargoGlobal [_smokegreen, 2];
+			(unitBackpack _unit) addMagazineCargoGlobal [_grenade, 2];
+		};
+	};
 
 // ====================================================================================
 

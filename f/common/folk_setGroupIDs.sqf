@@ -10,30 +10,28 @@ GrpUS_DC setGroupId ["US Army DC -","GroupColor0"];
 GrpUS_ASL setGroupId ["US Army ASL -","GroupColor0"];
 GrpUS_A1 setGroupId ["US Army A1 -","GroupColor0"];
 GrpUS_A2 setGroupId ["US Army A2 -","GroupColor0"];
-GrpUS_A3 setGroupId ["US Army A3 -","GroupColor0"];
+GrpUS_A_LMG setGroupId ["US Army A LMG -","GroupColor0"];
+GrpUS_A_LAT setGroupId ["US Army A LAT -","GroupColor0"];
+GrpUS_A_MM setGroupId ["US Army A Marksman -","GroupColor0"];
 GrpUS_BSL setGroupId ["US Army BSL -","GroupColor0"];
 GrpUS_B1 setGroupId ["US Army B1 -","GroupColor0"];
 GrpUS_B2 setGroupId ["US Army B2 -","GroupColor0"];
-GrpUS_B3 setGroupId ["US Army B3 -","GroupColor0"];
+GrpUS_B_LMG setGroupId ["US Army B LMG -","GroupColor0"];
+GrpUS_B_LAT setGroupId ["US Army B LAT -","GroupColor0"];
+GrpUS_B_MM setGroupId ["US Army B Marksman -","GroupColor0"];
 GrpUS_CSL setGroupId ["US Army CSL -","GroupColor0"];
 GrpUS_C1 setGroupId ["US Army C1 -","GroupColor0"];
 GrpUS_C2 setGroupId ["US Army C2 -","GroupColor0"];
-GrpUS_C3 setGroupId ["US Army C3 -","GroupColor0"];
-GrpUS_MMG1 setGroupId ["US Army MMG1 -","GroupColor0"];
-GrpUS_MAT1 setGroupId ["US Army MAT1 -","GroupColor0"];
-GrpUS_ST1 setGroupId ["US Army ST1 -","GroupColor0"];
-GrpUS_HMG1 setGroupId ["US Army HMG1 -","GroupColor0"];
-GrpUS_MTR1 setGroupId ["US Army MTR1 -","GroupColor0"];
-GrpUS_HAT1 setGroupId ["US Army HAT1 -","GroupColor0"];
-GrpUS_SAM1 setGroupId ["US Army SAM1 -","GroupColor0"];
-GrpUS_ENG1 setGroupId ["US Army ENG1 -","GroupColor0"];
-GrpUS_IFV1 setGroupId ["US Army IFV1 -","GroupColor0"];
-GrpUS_IFV2 setGroupId ["US Army IFV2 -","GroupColor0"];
-GrpUS_IFV3 setGroupId ["US Army IFV3 -","GroupColor0"];
-GrpUS_TNK1 setGroupId ["US Army TNK1 -","GroupColor0"];
-GrpUS_TH1 setGroupId ["US Army TH1 -","GroupColor0"];
-GrpUS_TH2 setGroupId ["US Army TH2 -","GroupColor0"];
-GrpUS_AH1 setGroupId ["US Army AH1 -","GroupColor0"];
+GrpUS_C_LMG setGroupId ["US Army C LMG -","GroupColor0"];
+GrpUS_C_LAT setGroupId ["US Army C LAT -","GroupColor0"];
+GrpUS_C_MM setGroupId ["US Army C Marksman -","GroupColor0"];
+GrpUS_DSL setGroupId ["US Army DSL -","GroupColor0"];
+GrpUS_D1 setGroupId ["US Army D1 -","GroupColor0"];
+GrpUS_D2 setGroupId ["US Army D2 -","GroupColor0"];
+GrpUS_D_LMG setGroupId ["US Army D LMG -","GroupColor0"];
+GrpUS_D_LAT setGroupId ["US Army D LAT -","GroupColor0"];
+GrpUS_D_MM setGroupId ["US Army D Marksman -","GroupColor0"];
+
 
 // ====================================================================================
 
@@ -143,38 +141,40 @@ GrpTK_AH1 setGroupId ["Takistani Army AH1 -","GroupColor0"];
 
 // ====================================================================================
 
-// GROUP IDs: Russian Army
+// GROUP IDs: Spetsnaz
 // Automatically assigns intelligible names to groups
 
-GrpRU_CO setGroupId ["Russian Army CO -","GroupColor0"];
-GrpRU_DC setGroupId ["Russian Army DC -","GroupColor0"];
-GrpRU_ASL setGroupId ["Russian Army ASL -","GroupColor0"];
-GrpRU_A1 setGroupId ["Russian Army A1 -","GroupColor0"];
-GrpRU_A2 setGroupId ["Russian Army A2 -","GroupColor0"];
-GrpRU_A3 setGroupId ["Russian Army A3 -","GroupColor0"];
-GrpRU_BSL setGroupId ["Russian Army BSL -","GroupColor0"];
-GrpRU_B1 setGroupId ["Russian Army B1 -","GroupColor0"];
-GrpRU_B2 setGroupId ["Russian Army B2 -","GroupColor0"];
-GrpRU_B3 setGroupId ["Russian Army B3 -","GroupColor0"];
-GrpRU_CSL setGroupId ["Russian Army CSL -","GroupColor0"];
-GrpRU_C1 setGroupId ["Russian Army C1 -","GroupColor0"];
-GrpRU_C2 setGroupId ["Russian Army C2 -","GroupColor0"];
-GrpRU_C3 setGroupId ["Russian Army C3 -","GroupColor0"];
-GrpRU_MMG1 setGroupId ["Russian Army MMG1 -","GroupColor0"];
-GrpRU_MAT1 setGroupId ["Russian Army MAT1 -","GroupColor0"];
-GrpRU_ST1 setGroupId ["Russian Army ST1 -","GroupColor0"];
-GrpRU_HMG1 setGroupId ["Russian Army HMG1 -","GroupColor0"];
-GrpRU_MTR1 setGroupId ["Russian Army MTR1 -","GroupColor0"];
-GrpRU_HAT1 setGroupId ["Russian Army HAT1 -","GroupColor0"];
-GrpRU_SAM1 setGroupId ["Russian Army SAM1 -","GroupColor0"];
-GrpRU_ENG1 setGroupId ["Russian Army ENG1 -","GroupColor0"];
-GrpRU_IFV1 setGroupId ["Russian Army IFV1 -","GroupColor0"];
-GrpRU_IFV2 setGroupId ["Russian Army IFV2 -","GroupColor0"];
-GrpRU_IFV3 setGroupId ["Russian Army IFV3 -","GroupColor0"];
-GrpRU_TNK1 setGroupId ["Russian Army TNK1 -","GroupColor0"];
-GrpRU_TH1 setGroupId ["Russian Army TH1 -","GroupColor0"];
-GrpRU_TH2 setGroupId ["Russian Army TH2 -","GroupColor0"];
-GrpRU_AH1 setGroupId ["Russian Army AH1 -","GroupColor0"];
+GrpRU_CO setGroupId ["Spetsnaz CO -","GroupColor0"];
+GrpRU_DC setGroupId ["Spetsnaz DC -","GroupColor0"];
+GrpRU_ASL setGroupId ["Spetsnaz ASL -","GroupColor0"];
+GrpRU_A1 setGroupId ["Spetsnaz A1 -","GroupColor0"];
+GrpRU_A2 setGroupId ["Spetsnaz A2 -","GroupColor0"];
+GrpRU_A3 setGroupId ["Spetsnaz A3 -","GroupColor0"];
+GrpRU_A_LMG setGroupId ["Spetsnaz A LMG -","GroupColor0"];
+GrpRU_A_LAT setGroupId ["Spetsnaz A LAT -","GroupColor0"];
+GrpRU_A_MM setGroupId ["Spetsnaz A Marksman -","GroupColor0"];
+GrpRU_BSL setGroupId ["Spetsnaz BSL -","GroupColor0"];
+GrpRU_B1 setGroupId ["Spetsnaz B1 -","GroupColor0"];
+GrpRU_B2 setGroupId ["Spetsnaz B2 -","GroupColor0"];
+GrpRU_B3 setGroupId ["Spetsnaz B3 -","GroupColor0"];
+GrpRU_B_LMG setGroupId ["Spetsnaz A LMG -","GroupColor0"];
+GrpRU_B_LAT setGroupId ["Spetsnaz A LAT -","GroupColor0"];
+GrpRU_B_MM setGroupId ["Spetsnaz A Marksman -","GroupColor0"];
+GrpRU_CSL setGroupId ["Spetsnaz CSL -","GroupColor0"];
+GrpRU_C1 setGroupId ["Spetsnaz C1 -","GroupColor0"];
+GrpRU_C2 setGroupId ["Spetsnaz C2 -","GroupColor0"];
+GrpRU_C3 setGroupId ["Spetsnaz C3 -","GroupColor0"];
+GrpRU_C_LMG setGroupId ["Spetsnaz A LMG -","GroupColor0"];
+GrpRU_C_LAT setGroupId ["Spetsnaz A LAT -","GroupColor0"];
+GrpRU_C_MM setGroupId ["Spetsnaz A Marksman -","GroupColor0"];
+GrpRU_DSL setGroupId ["Spetsnaz CSL -","GroupColor0"];
+GrpRU_D1 setGroupId ["Spetsnaz C1 -","GroupColor0"];
+GrpRU_D2 setGroupId ["Spetsnaz C2 -","GroupColor0"];
+GrpRU_D3 setGroupId ["Spetsnaz C3 -","GroupColor0"];
+GrpRU_D_LMG setGroupId ["Spetsnaz A LMG -","GroupColor0"];
+GrpRU_D_LAT setGroupId ["Spetsnaz A LAT -","GroupColor0"];
+GrpRU_D_MM setGroupId ["Spetsnaz A Marksman -","GroupColor0"];
+
 
 //===================================================================================== 
 

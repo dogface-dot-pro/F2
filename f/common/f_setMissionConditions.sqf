@@ -27,45 +27,45 @@ _weather = f_param_weather;
 
 switch (_timeOfDay) do
 {
-// Dawn
+// Sunset -30 min
 	case 0:
 	{
-		setDate [2007, 5, 11, 4, 50];
+		setDate [1989, 10, 31, 18, 00];
 	};
-// Early Morning
+// Sunset
 	case 1:
 	{
-		setDate [2007, 5, 11, 5, 50];
+		setDate [1989, 10, 31, 18, 30];
 	};
-// Morning
+// Sunset +1 h
 	case 2:
 	{
-		setDate [2007, 5, 11, 9, 00];
+		setDate [1989, 10, 31, 19, 30];
 	};
-// Noon
+// Midnight
 	case 3:
 	{
-		setDate [2007, 5, 11, 12, 0];
+		setDate [1989, 10, 31, 0, 0];
 	};
-// Afternoon
+// Sunrise -1 h
 	case 4:
 	{
-		setDate [2007, 5, 11, 15, 00];
+		setDate [1989, 10, 31, 4, 30];
 	};
-// Evening
+// Sunrise -30 min
 	case 5:
 	{
-		setDate [2007, 5, 11, 17, 50];
+		setDate [1989, 10, 31, 5, 00];
 	};
-// Dusk
+// Sunrise
 	case 6:
 	{
-		setDate [2007, 5, 11, 18, 50];
+		setDate [1989, 10, 31, 5, 30];
 	};
-// Night
+// Sunrise +2 h
 	case 7:
 	{
-		setDate [2007, 5, 11, 0, 0];
+		setDate [1989, 10, 31, 6, 30];
 	};
 };
 

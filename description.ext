@@ -26,16 +26,10 @@ respawndelay = 3;
 #include "f\common\f_JIP_kitpicker.h"
 #include "f\common\f_JIP_grppicker.h"
 
-// ============================================================================================
-
-// F2 - Start of Params code blocks.
-// WARNING: DO NOT DELETE OR COMMENT OUT THIS CODE BLOCK
-
 class Params
 {
 
 // ============================================================================================
-
 // F2 - Whether AssignGear should allow Backpacks for OA/BAF/PMC units. Works only on A2 units in CO 1.63 or later.
 // Credits: Please see the F2 online manual (http://www.ferstaberinde.com/f2/en/)
 // WARNING: DO NOT DISABLE THIS COMPONENT OR CHANGE POSITION IN PARAMS; IT MUST BE REFERENCABLE
@@ -45,7 +39,7 @@ class Params
                 title = "OA Backpacks";
                 values[] = {0,1};
                 texts[] = {"Off","On"};
-                default = 0;
+                default = 1;
                 code = "f_param_useBackpacks = %1";
         }; 
 		
@@ -90,11 +84,11 @@ class Params
                 title = "$STR_f_param_timeOfDay";
                 values[] = {0,1,2,3,4,5,6,7};
                 texts[] = {$STR_f_param_timeOfDay_Option0,$STR_f_param_timeOfDay_Option1,$STR_f_param_timeOfDay_Option2,$STR_f_param_timeOfDay_Option3,$STR_f_param_timeOfDay_Option4,$STR_f_param_timeOfDay_Option5,$STR_f_param_timeOfDay_Option6,$STR_f_param_timeOfDay_Option7};
-                default = 3;
+                default = 5;
                 code = "f_param_timeOfDay = %1";
         };   
         class f_param_weather
-	{
+		{
 		title = "$STR_f_param_weather";
 		values[] = {0,1,2,3,4};
 		texts[] = {$STR_f_param_weather_Option0,$STR_f_param_weather_Option1,$STR_f_param_weather_Option2,$STR_f_param_weather_Option3,$STR_f_param_weather_Option4};
@@ -115,14 +109,14 @@ class Params
 //		default = 2;
 //		code = "f_param_AISkill_Friendly = %1";
 //	};
-//	class f_param_AISkill_Enemy
-//	{
-//		title = "$STR_f_param_AISkill_Enemy";
-//		values[] = {0,1,2,3};
-//		texts[] = {$STR_f_param_AISkill_Option0,$STR_f_param_AISkill_Option1,$STR_f_param_AISkill_Option2,$STR_f_param_AISkill_Option3};
-//		default = 2;
-//		code = "f_param_AISkill_Enemy = %1";
-//	};
+	class f_param_AISkill_Enemy
+	{
+		title = "$STR_f_param_AISkill_Enemy";
+		values[] = {0,1,2,3};
+		texts[] = {$STR_f_param_AISkill_Option0,$STR_f_param_AISkill_Option1,$STR_f_param_AISkill_Option2,$STR_f_param_AISkill_Option3};
+		default = 2;
+		code = "f_param_AISkill_Enemy = %1";
+	};
 
 // ============================================================================================
 
@@ -145,13 +139,29 @@ class Params
 //		default = 2;
 //		code = "f_param_AISkill_OPFOR = %1";
 //	};
+//  class f_
 
 // ============================================================================================
 
-// F2 - End of Params code blocks.
-// WARNING: DO NOT DELETE OR COMMENT OUT THIS CODE BLOCK
+// DC Support options
 
-};
+	class f_param_DC_Mortar
+	{
+		title = "Mortar (AI controlled by DC)";
+		values[] = {0,1};
+		texts[] = {"Off","On"};
+		default = 1;
+		code = "f_param_DC_Mortar = %1";
+	};
+	class f_param_DC_Gunship
+	{
+		title = "Gunship (AI controlled by DC)";
+		values[] = {0,1};
+		texts[] = {"Off","On"};
+		default = 1;
+		code = "f_param_DC_Gunship = %1";
+	};
+	
 
 // ============================================================================================
 
