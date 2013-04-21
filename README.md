@@ -1,3 +1,27 @@
+F2-SF
+=====
+By Dogface
+
+A variation of the standard F2 ORBAT, created for a set of missions I'm working on, and as the basis for an adaptive mission system 
+currently in the works, inspired by DAC and Group Link, but simpler, so my brain can be able to understand it. This project is by way
+of a coding refresher for me.
+
+This is the ORBAT-only version until I've done some more work on the rest. The emphasis is on stealthy, tactical, night-time missions,
+with less firepower and more close support between elements. It's partly based on accounts of spetsnaz operations in the Afghan-Soviet war.
+A US 'Delta Force' version is also included.
+
+Each squad is now two four-man fireteams of riflemen and suppressed weapons, with a medic/SMG scout each. Each squad has an LMG team (AR), LAT team (RPG/M136 and explosives), and marksman team (VSS Vintorez/M4SPR) as support. Beyond that there are currently no attachments or vehicles. However the DC has an AI mortar and gunship in his group and acts as a forward observer. These can be disabled in parameters.
+
+Equipment has been changed to reflect equipment circa 1989 for the spetsnaz and 2002-ish for the Delta Force. Time parameters have been
+changed to various times of night (and one in sunlight). By default, only element leaders (CO/DC/SL/FTL) have NVG and flares, but I'll
+put in a parameter for this. This will be quite customizable eventually, especially with the adaptive elements.
+
+Well, that's enough for now. Base F2 readme as at time of forking follows.
+
+--Dogface, Apr 2013
+
+============================================================================================================
+
 # F2 README #
 
 * Version: 2-7-1
